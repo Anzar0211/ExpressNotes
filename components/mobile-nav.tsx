@@ -3,15 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
-  Menu,
   PlusCircle,
   List,
   Home,
@@ -61,12 +55,6 @@ export function MobileNav({
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-5 w-5" />
-          <span className="sr-only">Toggle menu</span>
-        </Button>
-      </SheetTrigger>
       <SheetContent side="left" className="w-[280px] sm:w-[350px] border-r">
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
@@ -74,45 +62,63 @@ export function MobileNav({
           <div className="flex items-center justify-between mb-6 mt-2">
             <Link
               href="/"
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 transition-transform hover:scale-105"
               onClick={handleLinkClick}
             >
-              <div className="relative">
+              <div className="relative mr-2">
                 <Pencil className="h-6 w-6 text-purple-600" />
-                <span className="absolute -top-1 -right-1 h-2 w-2 bg-pink-500 rounded-full"></span>
+                <span className="absolute -top-1 -right-1 h-2 w-2 bg-pink-500 rounded-full animate-pulse"></span>
               </div>
               <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent font-serif text-xl font-satisfy">
                 ExpressNotes
               </span>
             </Link>
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
               onClick={() => setIsOpen(false)}
+              className="rounded-full h-8 w-8 border-muted hover:bg-accent/50"
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
 
-          <nav className="flex flex-col space-y-3 mb-auto">
+          <nav className="flex flex-col space-y-1 mb-auto">
             {links.map((link) => {
               const Icon = link.icon;
+              const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={handleLinkClick}
                   className={cn(
-                    "flex items-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent group",
-                    pathname === link.href
-                      ? "bg-accent/50 text-primary"
-                      : "text-muted-foreground"
+                    "flex items-center rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 group relative overflow-hidden",
+                    isActive
+                      ? "text-foreground bg-accent/80"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
-                  <Icon className="mr-3 h-4 w-4" />
+                  <div
+                    className={cn(
+                      "mr-3 p-1 rounded-md transition-all duration-200",
+                      isActive
+                        ? "bg-gradient-to-br from-purple-600/20 to-pink-500/20"
+                        : "bg-transparent group-hover:bg-gradient-to-br group-hover:from-purple-600/10 group-hover:to-pink-500/10"
+                    )}
+                  >
+                    <Icon
+                      className={cn(
+                        "h-4 w-4 transition-colors",
+                        isActive
+                          ? "text-purple-600"
+                          : "group-hover:text-purple-600"
+                      )}
+                    />
+                  </div>
                   <span>{link.label}</span>
-                  {pathname === link.href && (
-                    <span className="ml-auto h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  {isActive && (
+                    <span className="ml-auto h-1.5 w-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500"></span>
                   )}
                 </Link>
               );
@@ -132,10 +138,10 @@ export function MobileNav({
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-md hover:bg-accent transition-colors"
+                    className="p-2 rounded-md hover:bg-accent/50 transition-colors group"
                     aria-label={link.label}
                   >
-                    <Icon className="h-5 w-5 text-muted-foreground" />
+                    <Icon className="h-5 w-5 text-muted-foreground group-hover:text-purple-600 transition-colors" />
                   </a>
                 );
               })}

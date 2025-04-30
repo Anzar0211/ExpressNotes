@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Mail, Heart } from "lucide-react";
+import { Github, Twitter, Mail, Heart, Pencil } from "lucide-react";
 
 export function Footer() {
   return (
@@ -11,6 +11,10 @@ export function Footer() {
           {/* Brand Section */}
           <div className="space-y-3">
             <div className="flex items-center">
+              <div className="relative mr-2">
+                <Pencil className="h-5 w-5 text-purple-600" />
+                <span className="absolute -top-1 -right-1 h-1.5 w-1.5 bg-pink-500 rounded-full"></span>
+              </div>
               <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent font-serif text-xl">
                 ExpressNotes
               </span>
@@ -24,7 +28,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
@@ -33,14 +37,14 @@ export function Footer() {
                 href="https://github.com/Anzar0211"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
               <a
                 href="mailto:info@noteservice.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
@@ -54,19 +58,19 @@ export function Footer() {
             <nav className="flex flex-col space-y-2">
               <Link
                 href="/"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/add"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 Add Note
               </Link>
               <Link
                 href="/notes"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 View Notes
               </Link>
@@ -79,19 +83,19 @@ export function Footer() {
             <nav className="flex flex-col space-y-2">
               <Link
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 Terms of Service
               </Link>
               <Link
                 href="#"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-purple-600 transition-colors"
               >
                 About Us
               </Link>
