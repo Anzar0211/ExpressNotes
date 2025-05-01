@@ -4,13 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import {
   PlusCircle,
   List,
   Home,
   Pencil,
-  X,
   Mail,
   Github,
   Twitter,
@@ -59,7 +57,7 @@ export function MobileNav({
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between mb-6 mt-2">
+          <div className="flex items-center mb-6 mt-2">
             <Link
               href="/"
               className="flex items-center space-x-2 transition-transform hover:scale-105"
@@ -73,14 +71,6 @@ export function MobileNav({
                 ExpressNotes
               </span>
             </Link>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="rounded-full h-8 w-8 border-muted hover:bg-accent/50"
-            >
-              <X className="h-4 w-4" />
-            </Button>
           </div>
 
           <nav className="flex flex-col space-y-1 mb-auto">
