@@ -173,7 +173,7 @@ export function NotesList() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-full">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
           Your Notes
@@ -215,7 +215,7 @@ export function NotesList() {
         </Card>
       )}
 
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {notes.map((note) => (
           <Card
             key={note.id}
