@@ -20,7 +20,7 @@ import { ArrowRight, Pencil, Book } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="container max-w-5xl py-12 px-4 sm:px-6 mx-auto">
+    <div className="container lg:max-w-full max-w-5xl py-12 px-4 sm:px-6 mx-auto">
       {/* Hero section with brand identity and app purpose */}
       <div className="flex flex-col items-center text-center space-y-4 mb-12">
         <div className="flex items-center mb-4">
@@ -41,7 +41,7 @@ export default function Home() {
       {/* Feature cards with clear CTAs - dual focus options for different user intents */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Create Notes card - primary action for new users */}
-        <Card className="border-t-4 border-t-purple-600 shadow-md transition-all hover:shadow-lg">
+        <Card className="border-t-4 border-t-purple-600 shadow-md transition-all hover:shadow-lg lg:py-12">
           <CardHeader>
             <CardTitle className="flex items-center">
               <Pencil className="h-5 w-5 mr-2 text-purple-600" />
@@ -62,7 +62,7 @@ export default function Home() {
         </Card>
 
         {/* View Notes card - secondary action for returning users */}
-        <Card className="border-t-4 border-t-pink-500 shadow-md transition-all hover:shadow-lg">
+        <Card className="border-t-4 border-t-pink-500 shadow-md transition-all hover:shadow-lg lg:py-12">
           <CardHeader>
             <CardTitle className="flex items-center">
               <Book className="h-5 w-5 mr-2 text-pink-500" />
