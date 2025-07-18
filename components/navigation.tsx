@@ -40,17 +40,17 @@ export function Navigation() {
   // 4. Responsive design adapts to both mobile and desktop without complex interactions
 
   return (
-    <nav className="border-b sticky top-0 z-40 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <nav className="border-b sticky top-0 z-40 w-full max-w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="lg:max-w-full lg:p-4 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="transition-transform hover:scale-105">
               <div className="flex items-center">
                 <div className="relative mr-2">
-                  <Pencil className="h-6 w-6 text-purple-600" />
-                  <span className="absolute -top-1 -right-1 h-2 w-2 bg-pink-500 rounded-full animate-pulse"></span>
+                  <Pencil className="h-6 w-6 lg:h-8 lg:w-8 text-purple-600" />
+                  <span className="absolute -top-1 -right-1 h-2 w-2 lg:h-2.5 lg:w-2.5 bg-pink-500 rounded-full animate-pulse"></span>
                 </div>
-                <span className="font-bold text-xl font-satisfy bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+                <span className="font-bold text-xl lg:text-3xl font-satisfy bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
                   ExpressNotes
                 </span>
               </div>
@@ -64,7 +64,7 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-colors relative group",
+                  "px-3 py-2 rounded-md text-sm lg:text-lg font-medium transition-colors relative group",
                   pathname === link.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
@@ -81,12 +81,12 @@ export function Navigation() {
               variant="outline"
               size="icon"
               onClick={toggleTheme}
-              className="ml-2 rounded-full border-muted transition-colors hover:bg-accent/50 hover:border-accent"
+              className="ml-2 rounded-full border-muted transition-colors hover:bg-accent/50 hover:border-accent lg:w-12 lg:h-12"
             >
               {theme === "dark" ? (
-                <Sun className="h-4 w-4 text-yellow-500" />
+                <Sun className="h-4 w-4 lg:h-6 lg:w-6 text-yellow-500" />
               ) : (
-                <Moon className="h-4 w-4 text-purple-600" />
+                <Moon className="h-4 w-4 lg:h-6 lg:w-6 text-purple-600" />
               )}
             </Button>
           </div>
